@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+title: SZZ in the time of Pull Requests
+message: "If you use this dataset, please cite it using the metadata from this file."
+type: dataset
+doi: 10.48550/arXiv.2209.03311
+date-released: 2022-09-07
+repository-code: https://github.com/mozilla/regressors-regressions-dataset
+license: MPL-2.0
+authors:
+  - given-names: Fernando
+    family-names: Petrulio
+    email: fpetrulio@ifi.uzh.ch
+    affiliation: University of Zurich
+  - given-names: David
+    family-names: Ackermann
+    email: david.ackermann@uzh.ch
+    affiliation: University of Zurich
+  - given-names: Enrico
+    family-names: Fregnan
+    email: fregnan@ifi.uzh.ch
+    affiliation: University of Zurich
+  - given-names: Gül
+    family-names: Çalikli
+    affiliation: University of Glasgow
+    email: handangul.calikli@glasgow.ac.uk
+  - given-names: Marco
+    family-names: Castelluccio
+    email: mcastelluccio@mozilla.com
+    affiliation: Mozilla
+    orcid: https://orcid.org/0000-0002-3285-5121
+  - given-names: Sylvestre
+    family-names: Ledru
+    email: sledru@mozilla.com
+    affiliation: Mozilla
+  - given-names: Calixte
+    family-names: Denizet
+    email: cdenizet@mozilla.com
+    affiliation: Mozilla
+  - given-names: Emma
+    family-names: Humphries
+    email: me@emmah.net
+    affiliation: Mozilla
+  - given-names: Alberto
+    family-names: Bacchelli
+    email: bacchelli@ifi.uzh.ch
+    affiliation: University of Zurich
