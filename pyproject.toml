@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "Mozilla Regressors-Regressions Miner"
+version = "0.1.0"
+description = ""
+authors = ["fpetrulio <fe.petrulio@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.12"
+bugbug = "0.0.482"
+libmozdata = "0.1.82"
+tqdm = "^4.64.1"
+PyDriller = "1.12"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>"]
+build-backend = "poetry.core.masonry.api"
