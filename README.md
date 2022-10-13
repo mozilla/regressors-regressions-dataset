@@ -1,4 +1,5 @@
 This dataset has been published in ["SZZ in the time of Pull Requests"](https://arxiv.org/abs/2209.03311) and is a collection of 5348 links from bug-introducing and bug-fixing commit sets extracted from Mozilla's Bugzilla (https://bugzilla.mozilla.org) with the use of [bugbug](https://github.com/mozilla/bugbug). In this repository, you will find two shapes of it:
+
 1. A CSV file containing all the information related to each issue
 2. A JSON file in a format compatible with [PySZZ](https://github.com/grosa1/pyszz)
 
