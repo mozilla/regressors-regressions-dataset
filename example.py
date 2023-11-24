@@ -1,5 +1,9 @@
+# -*- coding: utf-8 -*-
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this file,
+# You can obtain one at http://mozilla.org/MPL/2.0/.
+
 import csv
-import itertools
 import statistics
 import sys
 
@@ -45,10 +49,18 @@ with open("dataset.csv", "r") as csv_file:
 
 print(f"Total number of pairs: {num}")
 print(f"Number of pairs with no shared files: {num_no_file_shared}")
-print(f"Number of pairs where the bug-fix only contains new lines: {num_new_lines_only_fix}")
-print(f"Number of pairs where the bug-introducing only contains removed lines: {num_remove_lines_only_bug}")
-print(f"Number of pairs where the bug-introducing is not linked to any commit: {num_no_bug}")
-print(f"Number of bugs which are not fixed yet and where the cause has been identified: {num_no_fix_yet}")
+print(
+    f"Number of pairs where the bug-fix only contains new lines: {num_new_lines_only_fix}"
+)
+print(
+    f"Number of pairs where the bug-introducing only contains removed lines: {num_remove_lines_only_bug}"
+)
+print(
+    f"Number of pairs where the bug-introducing is not linked to any commit: {num_no_bug}"
+)
+print(
+    f"Number of bugs which are not fixed yet and where the cause has been identified: {num_no_fix_yet}"
+)
 print("Deciles for the number of commits associated to bug fixes:")
 print(statistics.quantiles(nums_commits_fix, n=10, method="inclusive"))
 print("Deciles for the number of commits associated to bug introducing:")
