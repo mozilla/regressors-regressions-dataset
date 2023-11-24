@@ -48,6 +48,7 @@ with open("dataset.csv", "r") as csv_file:
 
 
 print(f"Total number of pairs: {num}")
+print(f"Total number of pairs where both bug-introducing and bug-fix are known: {num - num_no_fix_yet}")
 print(f"Number of pairs with no shared files: {num_no_file_shared}")
 print(
     f"Number of pairs where the bug-fix only contains new lines: {num_new_lines_only_fix}"
