@@ -17,13 +17,14 @@ python example.py
 The output is:
 
 ```
-Total number of pairs: 11991
+Total number of pairs: 20897
 Number of pairs with no shared files: 3126
 Number of pairs where the bug-fix only contains new lines: 1869
-Number of pairs where the bug-introducing only contains removed lines: 129
-Number of pairs where the bug-introducing is not linked to any commit: 73
+Number of pairs where the bug-introducing only contains removed lines: 998
+Number of pairs where the bug-introducing is not linked to any commit: 880
+Number of bugs which are not fixed yet and where the cause has been identified: 8906
 Deciles for the number of commits associated to bug fixes:
-[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0]
+[0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 2.0]
 Deciles for the number of commits associated to bug introducing:
 [1.0, 1.0, 1.0, 2.0, 2.0, 3.0, 4.0, 6.0, 12.0]
 ```

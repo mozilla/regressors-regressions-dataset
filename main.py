@@ -104,17 +104,9 @@ def main():
             fix_id = fix["id"]
             issue_date = fix["creation_time"]
 
-            # Check for existing Fix for the Bug
-            if fix_id not in git_commits:
-                logging.info(
-                    f"There is no commit for bug {fix_id}."
-                    f"Probably it has no associated fix commit yet, or there is no mapping."
-                )
-                continue
-
             # Retrieving Hashes for Mercurial and Git
-            fix_mercurial_commits = cs_map[fix_id]
-            fix_git_hashes = git_commits[fix_id]
+            fix_mercurial_commits = cs_map.get(fix_id, [])
+            fix_git_hashes = git_commits.get(fix_id, [])
 
             # Retrieving Bugs related to the Fix
             bug_ids = [bug_id for bug_id in fix["regressed_by"]]
@@ -127,15 +119,8 @@ def main():
                     bug_mercurial_commits.extend(cs_map[bug_id])
                     bug_git_hashes.extend(git_commits[bug_id])
 
-            # Creating and Writing the new record for the Dataset
-            writer.writerow(
-                [
-                    fix_id,
-                    " ".join(commit["node"] for commit in fix_mercurial_commits),
-                    " ".join(fix_git_hashes),
-                    " ".join(str(bug_id) for bug_id in bug_ids),
-                    " ".join(commit["node"] for commit in bug_mercurial_commits),
-                    " ".join(bug_git_hashes),
+            if len(fix_mercurial_commits) != 0:
+                no_file_shared = (
                     len(
                         set(
                             path
@@ -148,14 +133,34 @@ def main():
                             for path in commit["files"]
                         )
                     )
-                    == 0,
+                    == 0
+                )
+
+                new_lines_only_fix = (
                     sum(
                         commit["source_code_deleted"]
                         + commit["test_deleted"]
                         + commit["other_deleted"]
                         for commit in fix_mercurial_commits
                     )
-                    == 0,
+                    == 0
+                )
+            else:
+                # If there is no fix, we need to consider this information as missing.
+                no_file_shared = None
+                new_lines_only_fix = None
+
+            # Creating and Writing the new record for the Dataset
+            writer.writerow(
+                [
+                    fix_id,
+                    " ".join(commit["node"] for commit in fix_mercurial_commits),
+                    " ".join(fix_git_hashes),
+                    " ".join(str(bug_id) for bug_id in bug_ids),
+                    " ".join(commit["node"] for commit in bug_mercurial_commits),
+                    " ".join(bug_git_hashes),
+                    no_file_shared,
+                    new_lines_only_fix,
                     sum(
                         commit["source_code_added"]
                         + commit["test_added"]
