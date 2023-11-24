@@ -89,7 +89,7 @@ def main():
                 "FIX_ID",
                 "FIX_COMMITS_MERCURIAL",
                 "FIX_COMMITS_GIT",
-                "BUG_ID",
+                "BUG_IDS",
                 "BUG_COMMITS_MERCURIAL",
                 "BUG_COMMITS_GIT",
                 "NO_FILE_SHARED",

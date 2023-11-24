@@ -41,7 +41,7 @@ In the CSV file, each record represents a link between a bug-introducing and a b
 - `FIX_ID`: the ID of the regression bug (bug linked to the bug-fixing commits) on [Bugzilla](https://bugzilla.mozilla.org/)
 - `FIX_COMMITS_MERCURIAL`: the list of bug-fixing commit hashes from the original Mozilla [mozilla-central](https://hg.mozilla.org/mozilla-central/) repository hosted in Mercurial
 - `FIX_COMMITS_GIT`: the list of bug-fixing commit hashes on the mozilla-central mirror git repository (see https://github.com/glandium/git-cinnabar)
-- `BUG_ID`: the ID of the regressor bug (bug linked to the bug-introducing commits) on [Bugzilla](https://bugzilla.mozilla.org/)
+- `BUG_IDS`: the IDs of the regressor bugs (bugs linked to the bug-introducing commits) on [Bugzilla](https://bugzilla.mozilla.org/)
 - `BUG_COMMITS_MERCURIAL`: the list of bug-introducing commit hashes from the original mozilla-central repository hosted in Mercurial
 - `BUG_COMMITS_GIT`: the list of fix-inducing commit hashes on the mozilla-central mirror git repository
 - `NO_FILE_SHARED`: a boolean value. `TRUE` if no file is shared between the bug-fixing and bug-introducing commit sets (Extrinsic Bug/Ghost Commits), `FALSE` otherwise.
