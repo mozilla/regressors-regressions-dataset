@@ -2,9 +2,18 @@
 
 This dataset has been published in ["SZZ in the time of Pull Requests"](https://arxiv.org/abs/2209.03311) and is a collection of 11991 links from bug-introducing and bug-fixing commit sets extracted from Mozilla's Bugzilla (https://bugzilla.mozilla.org) with the use of [bugbug](https://github.com/mozilla/bugbug).
 
-Bug IDs refer to Bugzilla, e.g. 1856572 is https://bugzilla.mozilla.org/show_bug.cgi?id=1856572.
-Mercurial hashes refer to the mozilla-central repository, e.g. 3c1db459589a845238abc0359c581fb436a9458f is https://hg.mozilla.org/mozilla-central/rev/3c1db459589a845238abc0359c581fb436a9458f.
-Git hashes refer to a clone of the mozilla-central repository using [git-cinnabar](https://github.com/glandium/git-cinnabar): `git clone hg::https://hg.mozilla.org/mozilla-central`.
+In addition, the dataset also contains a set of 8906 links where the fix has not been found yet (so the bug-introducing commit set is known, but the bug-fixing commit set doesn't exist yet).
+
+Bug IDs refer to Bugzilla bug reports, e.g. 1856572 is https://bugzilla.mozilla.org/show_bug.cgi?id=1856572.
+Mercurial hashes refer to commits in the mozilla-central repository, e.g. 3c1db459589a845238abc0359c581fb436a9458f is https://hg.mozilla.org/mozilla-central/rev/3c1db459589a845238abc0359c581fb436a9458f.
+Git hashes refer to commits in a clone of the mozilla-central repository using [git-cinnabar](https://github.com/glandium/git-cinnabar): `git clone hg::https://hg.mozilla.org/mozilla-central`.
+
+Terminology:
+- Regressor / bug-introducing: a change in the repository, consisting of one or multiple commits, which causes a bug in the software.
+- Regression: a bug caused by a bug-introducing change.
+- Bug fix: a change in the repository, consisting of one or multiple commits, which resolves a bug in the software.
+
+Note: a bug-fixing change can also be a bug-introducing change, and viceversa. Sometimes developers will fix bugs and introduce new ones in the process.
 
 # Example usage of the dataset
 
@@ -18,6 +27,7 @@ The output is:
 
 ```
 Total number of pairs: 20897
+Total number of pairs where both bug-introducing and bug-fix are known: 11991
 Number of pairs with no shared files: 3126
 Number of pairs where the bug-fix only contains new lines: 1869
 Number of pairs where the bug-introducing only contains removed lines: 998
