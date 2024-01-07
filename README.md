@@ -8,14 +8,17 @@ Bug IDs refer to Bugzilla bug reports, e.g. 1856572 is https://bugzilla.mozilla.
 
 Mercurial hashes refer to commits in the mozilla-central repository, e.g. 3c1db459589a845238abc0359c581fb436a9458f is https://hg.mozilla.org/mozilla-central/rev/3c1db459589a845238abc0359c581fb436a9458f.
 
-Git hashes refer to commits in a clone of the mozilla-central repository using [git-cinnabar](https://github.com/glandium/git-cinnabar): `git clone hg::https://hg.mozilla.org/mozilla-central`.
+Git hashes refer to commits in a clone of the mozilla-central repository using [git-cinnabar](https://github.com/glandium/git-cinnabar). Use the [guide](https://github.com/glandium/git-cinnabar/wiki/Mozilla:-A-git-workflow-for-Gecko-development) of git
+cinnabar for Mozilla and run the following command: `git clone hg::https://hg.mozilla.org/mozilla-central`.
 
 ### Terminology
-- Regressor / bug-introducing: a change in the repository, consisting of one or multiple commits, which causes a bug in the software.
-- Regression: a bug caused by a bug-introducing change.
-- Bug fix: a change in the repository, consisting of one or multiple commits, which resolves a bug in the software.
+- Bug-introducing commits:  a change or set of changes commited in one or multiple commits, which caused or introduced a bug in the software.
+- Bug-fixing commits:  a change or set of changes commited in one or multiple commits, which fixed a bug in the software.
+- Regressor: the bug has been caused or introduced by other bugs (or their bug-fixing commits). 
+- Regression: the bug (or its bug-fixing commits) has caused other bugs.
+- There are various Bug Fields in BugZilla associated with above terms , such as `Regressed by` or `Regressions`. Please refer to the fields in [Mozilla Wiki](https://wiki.mozilla.org/BMO/UserGuide/BugFields).
 
-Note: a bug-fixing change can also be a bug-introducing change, and viceversa. Sometimes developers will fix bugs and introduce new ones in the process.
+Note: a bug-fixing change can also be a bug-introducing change, and viceversa. Sometimes developers will fix bugs and introduce new ones in the process. Also, it is possible for a bug to have only either of them, fix commit or bug-introducing commit as esablishing a link between them is not always easy.
 
 ## Example usage of the dataset
 
@@ -40,6 +43,7 @@ Deciles for the number of commits associated to bug fixes:
 Deciles for the number of commits associated to bug introducing:
 [1.0, 1.0, 1.0, 2.0, 2.0, 3.0, 4.0, 6.0, 12.0]
 ```
+Note: The pairs mentioned in output refers to the pairs of bug-introducing and bug-fixing commit sets. The shared files are also given as it is one way to link the pairs of bug-introducing and bug-fixing commit sets by identifying the shared files (common modified files) in pairs.
 
 ## Format
 
@@ -60,3 +64,16 @@ In the CSV file, each record represents a link between a bug-introducing and a b
 - `NEW_LINES_ONLY_FIX`: a boolean value. `TRUE` if there are only added lines in the bug-fixing commit-set (Ghost Commits), `FALSE` otherwise.
 - `REMOVE_LINES_ONLY_BUG`: a boolean value. `TRUE` if there are only removed lines in the bug-introducing commit-set (Ghost Commits), `FALSE` otherwise.
 - `NO_BUG`: a boolean value. `TRUE` if there is no commit linked to the regressor bug (Extrinsic Bug), `FALSE` otherwise.
+
+Note: Please refer to the following work ["SZZ in the time of Pull Requests"](https://arxiv.org/abs/2209.03311) to know more details about Ghost commits, Extrinsic Bug, identifying bug-introducing commits and bug-fixing commits and establishing link between these commit sets. 
+
+## References 
+
+@misc{petrulio2022szz,
+      title={SZZ in the time of Pull Requests}, 
+      author={Fernando Petrulio and David Ackermann and Enrico Fregnan and Gül Calikli and Marco Castelluccio and Sylvestre Ledru and Calixte Denizet and Emma Humphries and Alberto Bacchelli},
+      year={2022},
+      eprint={2209.03311},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE}
+}
