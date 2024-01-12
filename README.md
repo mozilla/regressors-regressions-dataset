@@ -72,8 +72,7 @@ Note: Please refer to the following work ["SZZ in the time of Pull Requests"](ht
 
 ## References 
 
-Please cite this work if you use the data in this repo.
-
+Please cite these works if you use the data in this repo.
 ```
 @misc{petrulio2022szz,
       title={SZZ in the time of Pull Requests}, 
@@ -82,5 +81,19 @@ Please cite this work if you use the data in this repo.
       eprint={2209.03311},
       archivePrefix={arXiv},
       primaryClass={cs.SE}
+}
+```
+
+```
+@software{castelluccio_bugbug,
+  author       = {Castelluccio, Marco},
+  title        = {mozilla/bugbug},
+  month        = jan,
+  year         = 2024,
+  publisher    = {Zenodo},
+  version      = {v0.0.533},
+  doi          = {10.5281/zenodo.4911345},
+  url          = {https://github.com/mozilla/bugbug},
+  license      = {MPL-2.0}
 }
 ```
