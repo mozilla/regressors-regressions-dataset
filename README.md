@@ -12,13 +12,14 @@ Git hashes refer to commits in a clone of the mozilla-central repository using [
 cinnabar for Mozilla and run the following command: `git clone hg::https://hg.mozilla.org/mozilla-central`.
 
 ### Terminology
-- Bug-introducing commits:  a change or set of changes commited in one or multiple commits, which caused or introduced a bug in the software.
-- Bug-fixing commits:  a change or set of changes commited in one or multiple commits, which fixed a bug in the software.
-- Regressor: the bug has been caused or introduced by other bugs (or their bug-fixing commits). 
-- Regression: the bug (or its bug-fixing commits) has caused other bugs.
-- There are various Bug Fields in BugZilla associated with above terms , such as `Regressed by` or `Regressions`. Please refer to the fields in [Mozilla Wiki](https://wiki.mozilla.org/BMO/UserGuide/BugFields).
 
-Note: a bug-fixing change can also be a bug-introducing change, and viceversa. Sometimes developers will fix bugs and introduce new ones in the process. Also, it is possible for a bug to have only either of them, fix commit or bug-introducing commit as esablishing a link between them is not always easy.
+- Bug-introducing commits: a change or set of changes in one or multiple commits, which introduced a bug in the software.
+- Bug-fixing commits: a change or set of changes in one or multiple commits, which fixed a bug in the software.
+- Regressor: the bug (i.e. its bug-fixing commits) has introduced other bugs.
+- Regression: the bug has been introduced by other bugs (i.e. their bug-fixing commits).
+- There are various bug fields in Bugzilla associated with the above terms, such as `Regressed by` or `Regressions`. Please refer to the fields in the [Mozilla Wiki](https://wiki.mozilla.org/BMO/UserGuide/BugFields).
+
+Note: a bug-fixing change can also be a bug-introducing change, and viceversa. Sometimes developers will fix bugs and introduce new ones in the process. Also, it is possible for a bug to have only either of them, fix commit or bug-introducing commit, as esablishing a link between them is not always easy.
 
 ## Example usage of the dataset
 
@@ -43,7 +44,7 @@ Deciles for the number of commits associated to bug fixes:
 Deciles for the number of commits associated to bug introducing:
 [1.0, 1.0, 1.0, 2.0, 2.0, 3.0, 4.0, 6.0, 12.0]
 ```
-Note: The pairs mentioned in output refers to the pairs of bug-introducing and bug-fixing commit sets. The shared files are also given as it is one way to link the pairs of bug-introducing and bug-fixing commit sets by identifying the shared files (common modified files) in pairs.
+Note: The pairs mentioned in the output refer to the pairs of bug-introducing and bug-fixing commit sets. The shared files are also given as identifying the shared files (common modified files) in pairs is one way to link the pairs of bug-introducing and bug-fixing commit sets.
 
 ## Format
 
@@ -65,7 +66,7 @@ In the CSV file, each record represents a link between a bug-introducing and a b
 - `REMOVE_LINES_ONLY_BUG`: a boolean value. `TRUE` if there are only removed lines in the bug-introducing commit-set (Ghost Commits), `FALSE` otherwise.
 - `NO_BUG`: a boolean value. `TRUE` if there is no commit linked to the regressor bug (Extrinsic Bug), `FALSE` otherwise.
 
-Note: Please refer to the following work ["SZZ in the time of Pull Requests"](https://arxiv.org/abs/2209.03311) to know more details about Ghost commits, Extrinsic Bug, identifying bug-introducing commits and bug-fixing commits and establishing link between these commit sets. 
+Note: Please refer to the following work ["SZZ in the time of Pull Requests"](https://arxiv.org/abs/2209.03311) to know more details about ghost commits, extrinsic bugs, identifying bug-introducing commits and bug-fixing commits, and establishing link between these commit sets.
 
 ## References 
 
