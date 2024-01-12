@@ -75,12 +75,12 @@ Note: Please refer to the following work ["SZZ in the time of Pull Requests"](ht
 Please cite these works if you use the data in this repo.
 ```
 @misc{petrulio2022szz,
-      title={SZZ in the time of Pull Requests}, 
-      author={Fernando Petrulio and David Ackermann and Enrico Fregnan and Gül Calikli and Marco Castelluccio and Sylvestre Ledru and Calixte Denizet and Emma Humphries and Alberto Bacchelli},
-      year={2022},
-      eprint={2209.03311},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE}
+  title={SZZ in the time of Pull Requests},
+  author={Fernando Petrulio and David Ackermann and Enrico Fregnan and Gül Calikli and Marco Castelluccio and Sylvestre Ledru and Calixte Denizet and Emma Humphries and Alberto Bacchelli},
+  year={2022},
+  eprint={2209.03311},
+  archivePrefix={arXiv},
+  primaryClass={cs.SE}
 }
 ```
 
